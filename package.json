@@ -6,8 +6,8 @@
     "serve": "port=$(shuf -i 2000-65000 -n 1); echo serving on: :$port; ./node_modules/.bin/serve -Sn -p $port dist &   ./node_modules/.bin/lt -p $port -s $(whoami)$(basename $PWD | sed 's/[^a-z^0-9]*//g')",
     "dev": "npm run build; npm run serve & npm run watch",
     "test": "./node_modules/.bin/gulp test",
-    "gh-pages": "git add --all dist && git commit --allow-empty-message -m '' && git subtree push --prefix dist origin gh-pages",
-    "install-psc-package-linux": "echo Setting up PureScript && wget -qO - $(curl -s https://api.github.com/repos/purescript/psc-package/releases/latest | grep 'browser_' | cut -d\\\" -f4 | grep linux64 | grep .tar.gz) | tar xvz -O psc-package/psc-package > ./node_modules/.bin/psc-package && ./node_modules/.bin/psc-package update"
+    "deploy-gh-pages": "if [ ! -d './dist/.git' ]; then git -C dist init; git -C dist checkout -B gh-pages; git -C dist remote add origin $(git config --get remote.origin.url); fi; git -C dist add --all .; git -C dist commit -q --allow-empty-message -m ''; git -C dist push origin HEAD",
+    "deploy": "npm run deploy-gh-pages"
   },
   "dependencies": {
   },
