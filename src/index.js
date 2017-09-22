@@ -24,7 +24,7 @@ document.onreadystatechange = function () {
     const title = function () {
       for (let line of content.innerHTML.split('<br>')) {
         if (line) {
-          document.title = 'isipo' + ' - ' + line
+          document.title = 'isipo' + ' - ' + line.replace(/<[a-z0-9-]+>/g, '')
           break
         }
       }
