@@ -71,7 +71,7 @@ document.onreadystatechange = function () {
           break;
         case 13:
           // Override newline to be just `<br>` without wrapping `<div>`s
-          document.execCommand('insertHTML', false, '<br>');
+          document.execCommand('insertHTML', false, '<br><br>');
           e.preventDefault();
           break;
       }
