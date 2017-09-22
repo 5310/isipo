@@ -9,7 +9,7 @@ self.addEventListener('install', e => {
         '_assets/favicon/144.png',
         '_assets/favicon/32.png',
         '_assets/favicon/16.png',
-        '_assets/linja-pona/linja pona.otf',
+        '_assets/linja-pona/linja pona 3 OTF.otf',
         'index.html',
         'index.css',
         'index.js',

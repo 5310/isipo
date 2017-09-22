@@ -14,12 +14,7 @@ document.onreadystatechange = function () {
 
     // Load content from URL, if any.
     const load = function () {
-      content.innerHTML = params.get('t') || `
-toki!<br>
-ni li ilo sitelen-pona<br>
-ni li ilo pi sitelen lon sitelen-pona. ni li sitelen kepeken linja-pona<br>
-jan [_sitelen_ante_musi_esun] pali ee linja-pona. jan ni li pona mute!
-      `;
+      content.innerHTML = params.get('t') || 'toki!<br>' + 'ni li ilo sitelen-pona<br>' + 'ni li ilo pi sitelen lon sitelen-pona. ni li sitelen kepeken linja-pona<br>' + 'jan [_sitelen_ante_musi_esun] pali ee linja-pona. jan ni li pona mute!';
     };
     // Save content to the URL.
     const save = function () {
