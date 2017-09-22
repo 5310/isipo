@@ -7,8 +7,12 @@ document.onreadystatechange = function () {
 
     // Load content from URL, if any.
     const load = function () {
-      const t = params.get('t');
-      if (t) content.innerHTML = t;
+      content.innerHTML = params.get('t') || `
+toki!<br>
+ni li ilo sitelen-pona<br>
+ni li ilo pi sitelen lon sitelen-pona. ni li sitelen kepeken linja-pona<br>
+jan [_sitelen_ante_musi_esun] pali ee linja-pona. jan ni li pona mute!
+      `;
     };
     // Save content to the URL.
     const save = function () {
@@ -19,7 +23,7 @@ document.onreadystatechange = function () {
     const title = function () {
       for (let line of content.innerHTML.split('<br>')) {
         if (line) {
-          document.title = 'isipo' + ' - ' + line.slice(0, -5).trim();
+          document.title = 'isipo' + ' - ' + line;
           break;
         }
       }
@@ -54,16 +58,20 @@ document.onreadystatechange = function () {
       cooldown = true;
     };
 
-    // Let tabs be tabs~
+    // Override keys.
     document.onkeydown = function (e) {
-      if (e.keyCode === 9) {
-        // TODO: Consider indent/outdent for selections with tab/shift+tab.
-        document.execCommand('insertHTML', false, '&#9');
-        e.preventDefault();
-      }
-      if (e.keyCode === 13) {
-        document.execCommand('insertHTML', false, '<br><br>');
-        e.preventDefault();
+      switch (e.keyCode) {
+        case 9:
+          // Let tabs be tabs~
+          // TODO: Consider indent/outdent for selections with tab/shift+tab.
+          document.execCommand('insertHTML', false, '&#9');
+          e.preventDefault();
+          break;
+        case 13:
+          // Override newline to be just `<br>` without wrapping `<div>`s
+          document.execCommand('insertHTML', false, '<br>');
+          e.preventDefault();
+          break;
       }
     };
 

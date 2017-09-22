@@ -19,5 +19,6 @@ main {
   width: 100vw;
   min-height: 100vh;
   padding: 2rem;
-  font-size: 2rem
+  font-size: 2rem;
+  white-space: pre-wrap
 }
