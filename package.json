@@ -41,8 +41,6 @@
     "postcss-nested": "2.x",
     "postcss-nested-props": "1.x",
     "pulp": "12.x",
-    "purescript": "0.x",
-    "purescript-psa": "0.x",
     "ramda": "0.x",
     "rollup": "0.x",
     "rollup-plugin-babel": "3.x",
