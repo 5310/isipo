@@ -66,6 +66,7 @@ const tasksCommon = { // Every base task pipeline, given a source function
 
   copy: src => src([
     'src/**/*',
+    'src/**/.*',
     '!src/**/*.pug',
     '!src/**/*.sss',
     '!src/**/*.purs',
