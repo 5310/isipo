@@ -54,19 +54,19 @@ const tasksCommon = { // Every base task pipeline, given a source function
 
   pug: src => src(['src/**/*.pug', '!src/_*/**/*'])
     .pipe(logInputs())
-    .pipe(pug({ pretty: true }))
+    .pipe(pug({ pretty: true }).on('error', console.log))
     .pipe(gulp.dest('dist')),
 
   postcss: src => src(['src/**/*.sss'])
     .pipe(logInputs())
-    .pipe(postcss(postcssPlugins, postcssOpts))
+    .pipe(postcss(postcssPlugins, postcssOpts).on('error', console.log))
     .pipe(rename({ extname: '.css' }))
     .pipe(gulp.dest('dist')),
 
   rollup: src => src(['src/**/index.js', `!${PSCOUT}/**`])
     .pipe(logInputs())
     .pipe(sourcemaps.init())
-    .pipe(rollup(rollupIOpts, rollupOOpts))
+    .pipe(rollup(rollupIOpts, rollupOOpts).on('error', console.log))
     .pipe(sourcemaps.write(''))
     .pipe(gulp.dest('dist')),
 
