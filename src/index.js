@@ -1,3 +1,5 @@
+import './sw-register.js'
+
 document.onreadystatechange = function () {
   if (document.readyState === 'interactive' || document.readyState === 'complete') {
     document.onreadystatechange = () => {}
