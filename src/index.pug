@@ -22,3 +22,24 @@ html(lang='en')
       p This app needs JavaScript to work.
 
     main(contenteditable, spellcheck="false")
+      
+    aside
+      .button.more
+        .icon: include _assets/icons/ic_more_vert_black_24px.svg
+      .menu
+        .overlay
+        .card
+          //- div: .logo ilo sitelen-pona
+          //- hr
+          .row.save
+            .latin Save
+            .button: .icon: include _assets/icons/ic_save_black_24px.svg
+          hr
+          .row.etc
+            .button: .icon: include _assets/icons/ic_brightness_4_black_24px.svg
+            .button: .icon: include _assets/icons/ic_text_latin_black_24px.svg
+            .button: .icon: include _assets/icons/ic_help_outline_black_24px.svg
+      .about.hide
+        .overlay
+        .card
+          div: .logo ilo sitelen-pona

@@ -7,6 +7,47 @@
   padding: 0
   box-sizing: border-box
 
+.button
+  width: 36px
+  height: 36px
+  padding: 4px
+  border-radius: 50%
+
+  .icon > svg
+    margin: 2px
+
+  &.warning
+    background: rgba(255, 176, 0, 0.5)
+
+  &:hover
+    background: rgba(0, 0, 0, 0.05)
+
+  &:active
+    background: rgba(0, 0, 0, 0.25)
+
+.card
+  border-radius: 2px
+  background: white
+  box-shadow:
+    0 0   2px rgba(0, 0, 0, 0.1),
+    0 2px 6px rgba(0, 0, 0, 0.2)
+
+.overlay
+  position: fixed
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  background: rgba(0, 0, 0, 0.1)
+
+.hide
+  display: none
+
+.logo
+  white-space: pre
+  font:
+    size: 2rem
+
 html
   font:
     family: "linja pona 3", "linja pona", sans-serif
@@ -23,3 +64,53 @@ main
   padding: 2rem
   font-size: 1.5rem
   white-space: pre-wrap
+
+aside
+  position: fixed
+  top: 0
+  right: 0
+
+  .more
+    margin: 8px
+    background: transparent
+
+  .menu
+    .card
+      min-width: 150px
+      margin: 8px
+      position: absolute
+      top: 0
+      right: 0
+      padding: 8px 0
+      display: grid
+      grid-template-columns: 1fr
+      grid-gap: 8px
+      line-height: 2.3rem
+
+      & > *
+        padding: 0 16px
+
+      hr
+        border: none
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+
+    .row
+      display: flex
+      justify-content: space-between
+
+      .button
+        margin: 0 -8px
+
+    .row.save .button
+      &:hover,
+      &:active
+        background: transparent
+
+    .row.save:hover
+      background: rgba(0, 0, 0, 0.05)
+
+    .row.save:active
+      background: rgba(0, 0, 0, 0.25)
+
+    .logo
+      margin-left: -0.2rem
