@@ -2,6 +2,56 @@
   font-family: "linja pona"
   src: url("_assets/fonts/linja pona 3 OTF.otf")
 
+:root
+  --color-black: black
+  --color-black-faded: color(black a(25%))
+  --color-black-faint: color(black a(7%))
+  --color-bg: white
+  --color-bg-faded: color(white a(25%))
+  --color-bg-faint: color(white a(7%))
+  --color-fg: #333
+  --color-fg-faded: color(#333 a(25%))
+  --color-fg-faint: color(#333 a(7%))
+  --color-warning: yellow
+  --color-warning-faded: color(yellow a(50%))
+  --color-warning-faint: color(yellow a(25%))
+  --color-error: red
+  --color-error-faded: color(red a(25%))
+  --color-error-faint: color(red a(7%))
+
+:root.dawn
+  --color-bg: #99a1a7
+  --color-bg-faded: color(#99a1a7 a(25%))
+  --color-bg-faint: color(#99a1a7 a(7%))
+
+:root.dusk
+  --color-bg: #6d5a50
+  --color-bg-faded: color(#6d5a50 a(25%))
+  --color-bg-faint: color(#6d5a50 a(7%))
+  --color-fg: white
+  --color-fg-faded: color(white a(25%))
+  --color-fg-faint: color(white a(7%))
+
+:root.dark
+  --color-black-faded: color(black a(50%))
+  --color-black-faint: color(black a(15%))
+  --color-bg: #333
+  --color-bg-faded: color(#333 a(25%))
+  --color-bg-faint: color(#333 a(7%))
+  --color-fg: white
+  --color-fg-faded: color(white a(25%))
+  --color-fg-faint: color(white a(7%))
+
+:root.black
+  --color-black-faded: color(black a(75%))
+  --color-black-faint: color(black a(50%))
+  --color-bg: #333
+  --color-bg-faded: color(#333 a(25%))
+  --color-bg-faint: color(#333 a(7%))
+  --color-fg: white
+  --color-fg-faded: color(white a(25%))
+  --color-fg-faint: color(white a(7%))
+
 *
   margin: 0
   padding: 0
@@ -17,20 +67,20 @@
     margin: 2px
 
   &.warning
-    background: rgba(255, 176, 0, 0.5)
+    background: var(--color-warning-faded)
 
   &:hover
-    background: rgba(0, 0, 0, 0.05)
+    background: var(--color-fg-faint)
 
   &:active
-    background: rgba(0, 0, 0, 0.25)
+    background: var(--color-fg-faded)
 
 .card
   border-radius: 2px
-  background: white
+  background: var(--color-bg)
   box-shadow:
-    0 0   2px rgba(0, 0, 0, 0.1),
-    0 2px 6px rgba(0, 0, 0, 0.2)
+    0 0   2px var(--color-black-faint),
+    0 2px 6px var(--color-black-faded)
 
 .overlay
   position: fixed
@@ -38,7 +88,7 @@
   left: 0
   bottom: 0
   right: 0
-  background: rgba(0, 0, 0, 0.1)
+  background: var(--color-fg-faint)
 
 .hide
   display: none
@@ -54,6 +104,9 @@ html
     size: 16px
 
   line-height: 2.5rem
+  background: var(--color-bg)
+  color: var(--color-fg)
+  fill: var(--color-fg)
 
 body
   overflow-x: hidden
@@ -92,7 +145,7 @@ aside
 
       hr
         border: none
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+        border-bottom: 1px solid var(--color-black-faint)
 
     .row
       display: flex
@@ -101,16 +154,17 @@ aside
       .button
         margin: 0 -8px
 
-    .row.save .button
-      &:hover,
+    .row.save
+      .button
+        &:hover,
+        &:active
+          background: transparent
+
+      &:hover
+        background: var(--color-fg-faint)
+
       &:active
-        background: transparent
-
-    .row.save:hover
-      background: rgba(0, 0, 0, 0.05)
-
-    .row.save:active
-      background: rgba(0, 0, 0, 0.25)
+        background: var(--color-fg-faded)
 
     .logo
       margin-left: -0.2rem

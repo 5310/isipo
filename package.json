@@ -35,6 +35,7 @@
     "gulp-watch": "4.x",
     "localtunnel": "1.x",
     "postcss": "6.x",
+    "postcss-color-function": "4.x",
     "postcss-cssnext": "3.x",
     "postcss-font-magician": "2.x",
     "postcss-mixins": "6.x",
