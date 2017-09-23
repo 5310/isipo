@@ -14,10 +14,10 @@ const watch = require('gulp-watch')
 const pug = require('gulp-pug')
 
 const postcss = require('gulp-postcss')
-const { plugins: postcssPlugins, options: postcssOpts } = require('./postcss.config.js')
+const { plugins: postcssPlugins, options: postcssOpts } = require('./.postcss.config.js')
 
 const rollup = require('gulp-better-rollup')
-const { inputOptions: rollupIOpts, outputOptions: rollupOOpts } = require('./rollup.config.js')
+const { inputOptions: rollupIOpts, outputOptions: rollupOOpts } = require('./.rollup.config.js')
 
 const logInputs = () => through.obj((chunk, enc, cb) => {
   console.log('Building: ' + path.relative(__dirname, chunk.path))
