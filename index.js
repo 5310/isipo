@@ -9,7 +9,34 @@ const shortenUrl = url => fetch('https://is.gd/create.php?format=json&url=' + en
 
 const lookupUrl = shorturl => fetch('https://is.gd/forward.php?format=json&shorturl=' + encodeURIComponent(shorturl)).then(res => res.json()).then(({ url }) => url);
 
-function _asyncToGenerator$1(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+var asyncToGenerator = function (fn) {
+  return function () {
+    var gen = fn.apply(this, arguments);
+    return new Promise(function (resolve, reject) {
+      function step(key, arg) {
+        try {
+          var info = gen[key](arg);
+          var value = info.value;
+        } catch (error) {
+          reject(error);
+          return;
+        }
+
+        if (info.done) {
+          resolve(value);
+        } else {
+          return Promise.resolve(value).then(function (value) {
+            step("next", value);
+          }, function (err) {
+            step("throw", err);
+          });
+        }
+      }
+
+      return step("next");
+    });
+  };
+};
 
 let updateKey;
 let makeKeyStale;
@@ -64,7 +91,7 @@ var setupMenu = (() => {
   makeKeyStale = () => {
     // TODO: Show floppy, hide share, spinner
   };
-  $save.addEventListener('pointerdown', _asyncToGenerator$1(function* () {
+  $save.addEventListener('pointerdown', asyncToGenerator(function* () {
     // TODO: Show spinner, hide floppy, share
     const shortUrl = yield shortenUrl(window.location.href);
     key = new URL(shortUrl).pathname.slice(1);
@@ -72,15 +99,13 @@ var setupMenu = (() => {
   }));
 });
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
 var setupUrlSaving = (() => {
   const params = new window.URLSearchParams(window.location.search);
   const content = document.querySelector('main');
 
   // Load content from URL, if any.
   const load = (() => {
-    var _ref = _asyncToGenerator(function* () {
+    var _ref = asyncToGenerator(function* () {
       let text = params.get('t');
       const key = params.get('s');
       if (key) {
