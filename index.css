@@ -1,22 +1,167 @@
 @font-face {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 100;
+  src: local("Roboto Thin Italic"),local(Roboto-ThinItalic),url(//fonts.gstatic.com/s/roboto/v16/12mE4jfMSBTmg-81EiS-YVQlYEbsez9cZjKsNMjLOwM.eot?#) format("eot"),url(//fonts.gstatic.com/s/roboto/v16/12mE4jfMSBTmg-81EiS-Yfk_vArhqVIZ0nv9q090hN8.woff2) format("woff2"),url(//fonts.gstatic.com/s/roboto/v16/12mE4jfMSBTmg-81EiS-YRsxEYwM7FgeyaSgU71cLG0.woff) format("woff");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 300;
+  src: local("Roboto Light Italic"),local(Roboto-LightItalic),url(//fonts.gstatic.com/s/roboto/v16/7m8l7TlFO-S3VkhHuR0at2fQcKutQXcIrRfyR5jdjY8.eot?#) format("eot"),url(//fonts.gstatic.com/s/roboto/v16/7m8l7TlFO-S3VkhHuR0at44P5ICox8Kq3LLUNMylGO4.woff2) format("woff2"),url(//fonts.gstatic.com/s/roboto/v16/7m8l7TlFO-S3VkhHuR0at4bN6UDyHWBl620a-IRfuBk.woff) format("woff");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 400;
+  src: local("Roboto Italic"),local(Roboto-Italic),url(//fonts.gstatic.com/s/roboto/v16/OiNnAEwKzzJkQCr4qZmeq_esZW2xOQ-xsNqO47m55DA.eot?#) format("eot"),url(//fonts.gstatic.com/s/roboto/v16/vPcynSL0qHq_6dX7lKVByfesZW2xOQ-xsNqO47m55DA.woff2) format("woff2"),url(//fonts.gstatic.com/s/roboto/v16/1pO9eUAp8pSF8VnRTP3xnvesZW2xOQ-xsNqO47m55DA.woff) format("woff");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 500;
+  src: local("Roboto Medium Italic"),local(Roboto-MediumItalic),url(//fonts.gstatic.com/s/roboto/v16/OLffGBTaF0XFOW1gnuHF0WfQcKutQXcIrRfyR5jdjY8.eot?#) format("eot"),url(//fonts.gstatic.com/s/roboto/v16/OLffGBTaF0XFOW1gnuHF0Y4P5ICox8Kq3LLUNMylGO4.woff2) format("woff2"),url(//fonts.gstatic.com/s/roboto/v16/OLffGBTaF0XFOW1gnuHF0YbN6UDyHWBl620a-IRfuBk.woff) format("woff");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 700;
+  src: local("Roboto Bold Italic"),local(Roboto-BoldItalic),url(//fonts.gstatic.com/s/roboto/v16/t6Nd4cfPRhZP44Q5QAjcC2fQcKutQXcIrRfyR5jdjY8.eot?#) format("eot"),url(//fonts.gstatic.com/s/roboto/v16/t6Nd4cfPRhZP44Q5QAjcC44P5ICox8Kq3LLUNMylGO4.woff2) format("woff2"),url(//fonts.gstatic.com/s/roboto/v16/t6Nd4cfPRhZP44Q5QAjcC4bN6UDyHWBl620a-IRfuBk.woff) format("woff");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 900;
+  src: local("Roboto Black Italic"),local(Roboto-BlackItalic),url(//fonts.gstatic.com/s/roboto/v16/bmC0pGMXrhphrZJmniIZpWfQcKutQXcIrRfyR5jdjY8.eot?#) format("eot"),url(//fonts.gstatic.com/s/roboto/v16/bmC0pGMXrhphrZJmniIZpY4P5ICox8Kq3LLUNMylGO4.woff2) format("woff2"),url(//fonts.gstatic.com/s/roboto/v16/bmC0pGMXrhphrZJmniIZpYbN6UDyHWBl620a-IRfuBk.woff) format("woff");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 100;
+  src: local("Roboto Thin"),local(Roboto-Thin),url(//fonts.gstatic.com/s/roboto/v16/PP2U5prMl9yvKSWVu6DtvPesZW2xOQ-xsNqO47m55DA.eot?#) format("eot"),url(//fonts.gstatic.com/s/roboto/v16/2tsd397wLxj96qwHyNIkxPesZW2xOQ-xsNqO47m55DA.woff2) format("woff2"),url(//fonts.gstatic.com/s/roboto/v16/vzIUHo9z-oJ4WgkpPOtg1_esZW2xOQ-xsNqO47m55DA.woff) format("woff");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  src: local("Roboto Light"),local(Roboto-Light),url(//fonts.gstatic.com/s/roboto/v16/Hgo13k-tfSpn0qi1SFdUffY6323mHUZFJMgTvxaG2iE.eot?#) format("eot"),url(//fonts.gstatic.com/s/roboto/v16/Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2) format("woff2"),url(//fonts.gstatic.com/s/roboto/v16/Hgo13k-tfSpn0qi1SFdUfT8E0i7KZn-EPnyo3HZu7kw.woff) format("woff");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  src: local(Roboto),local(Roboto-Regular),url(//fonts.gstatic.com/s/roboto/v16/5YB-ifwqHP20Yn46l_BDhA.eot?#) format("eot"),url(//fonts.gstatic.com/s/roboto/v16/CWB0XYA8bzo0kSThX0UTuA.woff2) format("woff2"),url(//fonts.gstatic.com/s/roboto/v16/2UX7WLTfW3W8TclTUvlFyQ.woff) format("woff");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  src: local("Roboto Medium"),local(Roboto-Medium),url(//fonts.gstatic.com/s/roboto/v16/RxZJdnzeo3R5zSexge8UUfY6323mHUZFJMgTvxaG2iE.eot?#) format("eot"),url(//fonts.gstatic.com/s/roboto/v16/RxZJdnzeo3R5zSexge8UUVtXRa8TVwTICgirnJhmVJw.woff2) format("woff2"),url(//fonts.gstatic.com/s/roboto/v16/RxZJdnzeo3R5zSexge8UUT8E0i7KZn-EPnyo3HZu7kw.woff) format("woff");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  src: local("Roboto Bold"),local(Roboto-Bold),url(//fonts.gstatic.com/s/roboto/v16/d-6IYplOFocCacKzxwXSOPY6323mHUZFJMgTvxaG2iE.eot?#) format("eot"),url(//fonts.gstatic.com/s/roboto/v16/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2) format("woff2"),url(//fonts.gstatic.com/s/roboto/v16/d-6IYplOFocCacKzxwXSOD8E0i7KZn-EPnyo3HZu7kw.woff) format("woff");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  src: local("Roboto Black"),local(Roboto-Black),url(//fonts.gstatic.com/s/roboto/v16/mnpfi9pxYH-Go5UiibESIvY6323mHUZFJMgTvxaG2iE.eot?#) format("eot"),url(//fonts.gstatic.com/s/roboto/v16/mnpfi9pxYH-Go5UiibESIltXRa8TVwTICgirnJhmVJw.woff2) format("woff2"),url(//fonts.gstatic.com/s/roboto/v16/mnpfi9pxYH-Go5UiibESIj8E0i7KZn-EPnyo3HZu7kw.woff) format("woff");
+}
+
+@font-face {
   font-family: "linja pona";
-  src: url("_assets/fonts/linja pona 3 OTF.otf")
+  src: url("_assets/fonts/linja pona 3 OTF.otf");
+}
+
+:root,
+  :root[data-color=light] {
+    --color-black: black;
+    --color-black-faded: rgba(0, 0, 0, .25);
+    --color-black-faint: rgba(0, 0, 0, .07);
+    --color-bg: white;
+    --color-bg-faded: rgba(255, 255, 255, .25);
+    --color-bg-faint: rgba(255, 255, 255, .07);
+    --color-fg: #333;
+    --color-fg-faded: rgba(51, 51, 51, .25);
+    --color-fg-faint: rgba(51, 51, 51, .07);
+    --color-warning: yellow;
+    --color-warning-faded: rgba(255, 255, 0, .5);
+    --color-warning-faint: rgba(255, 255, 0, .25);
+    --color-error: red;
+    --color-error-faded: rgba(255, 0, 0, .25);
+    --color-error-faint: rgba(255, 0, 0, .07);
+}
+
+:root[data-color=twilight] {
+    --color-bg: #827066;
+    --color-bg-faded: rgba(130, 112, 102, .25);
+    --color-bg-faint: rgba(130, 112, 102, .07);
+    --color-fg: #000;
+    --color-fg-faded: rgba(0, 0, 0, .25);
+    --color-fg-faint: rgba(0, 0, 0, .07);
+}
+
+:root[data-color=dark] {
+    --color-black-faded: rgba(0, 0, 0, .5);
+    --color-black-faint: rgba(0, 0, 0, .15);
+    --color-bg: #333;
+    --color-bg-faded: rgba(51, 51, 51, .25);
+    --color-bg-faint: rgba(51, 51, 51, .07);
+    --color-fg: rgb(177, 186, 187);
+    --color-fg-faded: rgba(177, 186, 187, .25);
+    --color-fg-faint: rgba(177, 186, 187, .07);
+}
+
+:root[data-color=black] {
+    --color-black-faded: rgba(0, 0, 0, .75);
+    --color-black-faint: rgba(0, 0, 0, .5);
+    --color-bg: black;
+    --color-bg-faded: rgba(0, 0, 0, .25);
+    --color-bg-faint: rgba(0, 0, 0, .07);
+    --color-fg: white;
+    --color-fg-faded: rgba(255, 255, 255, .25);
+    --color-fg-faint: rgba(255, 255, 255, .07);
 }
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+* [data-script=sitelenpona] {
+    font-family: "linja pona 3", "linja pona", sans-serif;
+}
+
+* [data-script=latin] {
+    font-family: Roboto;
+    font-weight: 300;
 }
 
 html {
-  font-family: "linja pona 3", "linja pona", sans-serif;
-  font-size: 16px;
-  line-height: 2.5rem
+  line-height: 2.5rem;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  fill: var(--color-fg);
 }
 
 body {
-  overflow-x: hidden
+  overflow-x: hidden;
 }
 
 main {
@@ -24,5 +169,118 @@ main {
   min-height: 100vh;
   padding: 2rem;
   font-size: 1.5rem;
-  white-space: pre-wrap
+  white-space: pre-wrap;
+}
+
+aside {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+aside .more {
+    margin: 8px;
+    background: transparent;
+}
+
+aside .menu .card {
+      min-width: 150px;
+      margin: 8px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 8px 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 8px;
+      line-height: 2.3rem;
+}
+
+aside .menu .card > * {
+        padding: 0 16px;
+}
+
+aside .menu .card hr {
+        border: none;
+        border-bottom: 1px solid var(--color-black-faint);
+}
+
+aside .menu .row {
+      display: flex;
+      justify-content: space-between;
+}
+
+aside .menu .row .button {
+        margin: 0 -8px;
+}
+
+aside .menu .row.save .label {
+        padding-top: 0.75em;
+        line-height: 1em;
+}
+
+aside .menu .row.save .button:hover,
+        aside .menu .row.save .button:active {
+          background: transparent;
+}
+
+aside .menu .row.save:hover {
+        background: var(--color-fg-faint);
+}
+
+aside .menu .row.save:active {
+        background: var(--color-fg-faded);
+}
+
+aside .menu .logo {
+      margin-left: -0.2rem;
+}
+
+.button {
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+  border-radius: 50%;
+}
+
+.button .icon > svg {
+    margin: 2px;
+}
+
+.button.warning {
+    background: var(--color-warning-faded);
+}
+
+.button:hover {
+    background: var(--color-fg-faint);
+}
+
+.button:active {
+    background: var(--color-fg-faded);
+}
+
+.card {
+  border-radius: 2px;
+  background: var(--color-bg);
+  box-shadow:
+    0 0   2px var(--color-black-faint),
+    0 2px 6px var(--color-black-faded);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: var(--color-fg-faint);
+}
+
+.hide {
+  display: none;
+}
+
+.logo {
+  white-space: pre;
+  font-size: 2rem;
 }
