@@ -18,10 +18,11 @@ Toki Pona latin notepad app.
     - [x] Dark
     - [x] Black
 - [ ] v1.3
-  - [ ] Is.gd URL shortening
+  - [x] Is.gd URL shortening
     - https://www.npmjs.com/package/isgd
-    - [ ] Implement a custom query parameter that delegates shortened urls
+    - [x] Implement a custom query parameter that delegates shortened urls
   - [ ] Display save freshness on overflow and save icon
+  - [ ] Display a "working" icon while saving.
   - [ ] Share button if Web Share present or copy url to clipboard
     - https://developers.google.com/web/updates/2016/09/navigator-share
     - https://clipboardjs.com/

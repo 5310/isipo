@@ -1,10 +1,21 @@
+import { lookupUrl } from './isgd.js'
+
 export default () => {
   const params = new window.URLSearchParams(window.location.search)
   const content = document.querySelector('main')
 
   // Load content from URL, if any.
-  const load = function () {
-    content.innerHTML = params.get('t') ||
+  const load = async function () {
+    let text = params.get('t')
+    const key = params.get('s')
+    if (key) {
+      text = new URLSearchParams(new URL(await lookupUrl('https://is.gd/' + key)).search).get('t')
+      params.delete('s')
+      params.set('t', new URLSearchParams(new URL(await lookupUrl('https://is.gd/' + key)).search).get('t'))
+      window.history.pushState({}, '', window.location.pathname + '?' + params)
+      document.querySelector('aside .menu .label').innerHTML = key
+    }
+    content.innerHTML = text ||
       'toki!<br>' +
       'ni li ilo sitelen-pona<br>' +
       'ni li ilo pi sitelen lon sitelen-pona. ni li sitelen kepeken linja-pona<br>' +

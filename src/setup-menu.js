@@ -1,3 +1,5 @@
+import { shortenUrl } from './isgd.js'
+
 export default () => {
   const $html = document.querySelector('html')
 
@@ -31,5 +33,14 @@ export default () => {
     $scripts[scriptIndex].classList.add('hide')
     scriptIndex = ++scriptIndex % $scripts.length
     $scripts[scriptIndex].classList.remove('hide')
+  })
+
+  const $save = $menu.querySelector('.save')
+  const $shortUrl = $save.querySelector('.label')
+  let key = ''
+  $save.addEventListener('pointerdown', async () => {
+    const shortUrl = await shortenUrl(window.location.href)
+    key = new URL(shortUrl).pathname.slice(1)
+    $shortUrl.innerHTML = key
   })
 }
