@@ -21,7 +21,7 @@ html(lang='en')
     noscript
       p This app needs JavaScript to work.
 
-    main(contenteditable, spellcheck="false")
+    main(contenteditable, spellcheck="false", data-script="sitelenpona")
       
     aside
       .button.more
@@ -42,8 +42,8 @@ html(lang='en')
               .button.hide(data-color="dark"): .icon: include _assets/icons/ic_brightness_2_24px.svg
               .button.hide(data-color="black"): .icon: include _assets/icons/ic_brightness_1_24px.svg
             .script
-              .button.script-latin: .icon: include _assets/icons/ic_script_latin_24px.svg
-              .button.script-sitelenpona.hide: .icon: include _assets/icons/ic_script_sitelenpona_24px.svg
+              .button(data-script="sitelenpona").hide: .icon: include _assets/icons/ic_script_sitelenpona_24px.svg
+              .button(data-script="latin"): .icon: include _assets/icons/ic_script_latin_24px.svg
             .button.about: .icon: include _assets/icons/ic_help_outline_24px.svg
       .about.hide
         .overlay

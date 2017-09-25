@@ -8,10 +8,10 @@ Toki Pona latin notepad app.
 
 - [x] v1.1
   - [x] Simple URL-saving notepad using Linja Pona
-- [ ] v1.2
+- [x] v1.2
   - [x] Add menu
     - https://codepen.io/5310/pen/boEKLZ?editors=1100
-  - [ ] Toggle for sitelen pona and Latin
+  - [x] Toggle for sitelen pona and Latin
   - [x] Light/dark toggle
     - [x] Light
     - [x] Twilight

@@ -1,10 +1,11 @@
 export default () => {
   const $html = document.querySelector('html')
 
+  const $main = document.querySelector('main')
+
   const $more = document.querySelector('aside .more')
   const $aside = document.querySelector('aside')
   const $menu = $aside.querySelector('.menu')
-
   $menu.querySelector('.overlay').addEventListener('pointerdown', () => {
     $menu.classList.add('hide')
   })
@@ -23,7 +24,12 @@ export default () => {
   })
 
   const $script = $menu.querySelector('.script')
+  const $scripts = Array.from($script.children)
+  let scriptIndex = 1
   $script.addEventListener('pointerdown', () => {
-    $main.classList.toggle('latin')
+    $main.dataset.script = $scripts[scriptIndex].dataset.script
+    $scripts[scriptIndex].classList.add('hide')
+    scriptIndex = ++scriptIndex % $scripts.length
+    $scripts[scriptIndex].classList.remove('hide')
   })
 }
