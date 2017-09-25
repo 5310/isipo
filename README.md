@@ -12,7 +12,8 @@ Toki Pona latin notepad app.
   - [x] Add menu
     - https://codepen.io/5310/pen/boEKLZ?editors=1100
   - [ ] Toggle for sitelen pona and Latin
-  - [ ] Light/dark toggle
+  - [x] Light/dark toggle
+    - [x] Light
     - [x] Twilight
     - [x] Dark
     - [x] Black

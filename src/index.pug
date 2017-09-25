@@ -36,9 +36,13 @@ html(lang='en')
             .button: .icon: include _assets/icons/ic_save_24px.svg
           hr
           .row.etc
-            .button: .icon: include _assets/icons/ic_brightness_4_24px.svg
-            .button: .icon: include _assets/icons/ic_text_latin_24px.svg
-            .button: .icon: include _assets/icons/ic_help_outline_24px.svg
+            .color
+              .button.color0(data-color="light"):         .icon: include _assets/icons/ic_brightness_5_24px.svg
+              .button.color1.hide(data-color="twilight"): .icon: include _assets/icons/ic_brightness_4_24px.svg
+              .button.color2.hide(data-color="dark"):     .icon: include _assets/icons/ic_brightness_2_24px.svg
+              .button.color3.hide(data-color="black"):    .icon: include _assets/icons/ic_brightness_1_24px.svg
+            .button.script: .icon: include _assets/icons/ic_text_latin_24px.svg
+            .button.about: .icon: include _assets/icons/ic_help_outline_24px.svg
       .about.hide
         .overlay
         .card

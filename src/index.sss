@@ -2,7 +2,8 @@
   font-family: "linja pona"
   src: url("_assets/fonts/linja pona 3 OTF.otf")
 
-:root
+:root,
+:root[data-color=light]
   --color-black: black
   --color-black-faded: color(black a(25%))
   --color-black-faint: color(black a(7%))
@@ -19,7 +20,7 @@
   --color-error-faded: color(red a(25%))
   --color-error-faint: color(red a(7%))
 
-:root.twilight
+:root[data-color=twilight]
   --color-bg: #827066
   --color-bg-faded: color(#827066 a(25%))
   --color-bg-faint: color(#827066 a(7%))
@@ -27,7 +28,7 @@
   --color-fg-faded: color(#000 a(25%))
   --color-fg-faint: color(#000 a(7%))
 
-:root.dark
+:root[data-color=dark]
   --color-black-faded: color(black a(50%))
   --color-black-faint: color(black a(15%))
   --color-bg: #333
@@ -37,12 +38,12 @@
   --color-fg-faded: color(white a(25%))
   --color-fg-faint: color(white a(7%))
 
-:root.black
+:root[data-color=black]
   --color-black-faded: color(black a(75%))
   --color-black-faint: color(black a(50%))
-  --color-bg: #333
-  --color-bg-faded: color(#333 a(25%))
-  --color-bg-faint: color(#333 a(7%))
+  --color-bg: black
+  --color-bg-faded: color(black a(25%))
+  --color-bg-faint: color(black a(7%))
   --color-fg: white
   --color-fg-faded: color(white a(25%))
   --color-fg-faint: color(white a(7%))
