@@ -1,5 +1,7 @@
 import { shortenUrl } from './isgd.js'
 
+export let updateKey, makeKeyStale
+
 export default () => {
   const $html = document.querySelector('html')
 
@@ -38,9 +40,22 @@ export default () => {
   const $save = $menu.querySelector('.save')
   const $shortUrl = $save.querySelector('.label')
   let key = ''
+  updateKey = k => {
+    // TODO: Show share, hide spinner, floppy
+    key = k
+    $shortUrl.innerHTML = key
+    const params = new window.URLSearchParams(window.location.search)
+    params.set('s', key)
+    params.delete('t')
+    window.history.pushState({}, '', window.location.pathname + '?' + params)
+  }
+  makeKeyStale = () => {
+    // TODO: Show floppy, hide share, spinner
+  }
   $save.addEventListener('pointerdown', async () => {
+    // TODO: Show spinner, hide floppy, share
     const shortUrl = await shortenUrl(window.location.href)
     key = new URL(shortUrl).pathname.slice(1)
-    $shortUrl.innerHTML = key
+    updateKey(key)
   })
 }

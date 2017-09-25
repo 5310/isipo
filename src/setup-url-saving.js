@@ -1,4 +1,5 @@
 import { lookupUrl } from './isgd.js'
+import { updateKey, makeKeyStale } from './setup-menu.js'
 
 export default () => {
   const params = new window.URLSearchParams(window.location.search)
@@ -13,7 +14,7 @@ export default () => {
       params.delete('s')
       params.set('t', new URLSearchParams(new URL(await lookupUrl('https://is.gd/' + key)).search).get('t'))
       window.history.pushState({}, '', window.location.pathname + '?' + params)
-      document.querySelector('aside .menu .label').innerHTML = key
+      updateKey(key)
     }
     content.innerHTML = text ||
       'toki!<br>' +
@@ -25,6 +26,7 @@ export default () => {
   const save = function () {
     params.set('t', content.innerHTML)
     window.history.replaceState({}, '', window.location.pathname + '?' + params)
+    makeKeyStale()
   }
   // Update title from content.
   const title = function () {
