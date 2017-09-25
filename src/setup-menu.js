@@ -14,12 +14,16 @@ export default () => {
 
   const $color = $menu.querySelector('.color')
   const $colors = Array.from($color.children)
-  let color = 0
-  const changeColor = () => {
-    $colors[color].classList.add('hide')
-    color = ++color % $colors.length
-    $colors[color].classList.remove('hide')
-    $html.dataset.color = $colors[color].dataset.color
-  }
-  $color.addEventListener('pointerdown', changeColor)
+  let colorIndex = 1
+  $color.addEventListener('pointerdown', () => {
+    $html.dataset.color = $colors[colorIndex].dataset.color
+    $colors[colorIndex].classList.add('hide')
+    colorIndex = ++colorIndex % $colors.length
+    $colors[colorIndex].classList.remove('hide')
+  })
+
+  const $script = $menu.querySelector('.script')
+  $script.addEventListener('pointerdown', () => {
+    $main.classList.toggle('latin')
+  })
 }
