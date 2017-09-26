@@ -48,7 +48,18 @@ html(lang='en')
               .button(data-script="sitelenpona").hide: .icon: include _assets/icons/ic_script_sitelenpona_24px.svg
               .button(data-script="latin"): .icon: include _assets/icons/ic_script_latin_24px.svg
             .button.about: .icon: include _assets/icons/ic_help_outline_24px.svg
-      .about.hide
+      .about-content.hide
         .overlay
         .card
           div: .logo ilo sitelen-pona
+          div(data-script="sitelenpona")
+            p ni li ilo pi sitelen lon sitelen-pona
+            p ni li sitelen kepeken linja-pona. jan [_sitelen_ante_musi_esun] pali ee linja-pona
+            p ilo ni kin kepeken ee ilo [_ilo_sama_._ken_toki]
+            p mi jan [_sona_ijo_oo]. mi pali ee ilo ni
+          div(data-script="latin") 
+            p This is a notebook for short snippets of Toki Pona written in the Sitelen Pona script.
+            p It makes use of the <a href="http://musilili.net/linja-pona/">Linja Pona font made by jan Seme</a>.
+            p This notebook also uses <a href="https://is.gd">is.gd</a>
+            p Made by <a href="https://plus.google.com/+SayantanChaudhuri">Scio</a>.
+          .button.github: a(href="https://github.com/5310/isipo"): .icon: include _assets/icons/ic_service_github_24px.svg

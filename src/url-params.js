@@ -19,11 +19,7 @@ export default () => {
       window.history.pushState({}, '', window.location.pathname + '?' + params)
       updateKey(key)
     }
-    content.innerHTML = text ||
-      'toki!<br>' +
-      'ni li ilo sitelen-pona<br>' +
-      'ni li ilo pi sitelen lon sitelen-pona. ni li sitelen kepeken linja-pona<br>' +
-      'jan [_sitelen_ante_musi_esun] pali ee linja-pona. jan ni li pona mute!'
+    content.innerHTML = text || 'toki!'
     title()
   }
   // Save content to the URL.

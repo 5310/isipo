@@ -108,4 +108,9 @@ export default () => {
       }
     }
   })
+
+  const $about = $menu.querySelector('.about')
+  const $abountContent = $aside.querySelector('.about-content')
+  $about.addEventListener('click', () => $abountContent.classList.remove('hide'))
+  $abountContent.querySelector('.overlay').addEventListener('click', () => $abountContent.classList.add('hide'))
 }
