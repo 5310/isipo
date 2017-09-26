@@ -11,17 +11,17 @@ export default () => {
   const $more = document.querySelector('aside .more')
   const $aside = document.querySelector('aside')
   const $menu = $aside.querySelector('.menu')
-  $menu.querySelector('.overlay').addEventListener('pointerdown', () => {
+  $menu.querySelector('.overlay').addEventListener('click', () => {
     $menu.classList.add('hide')
   })
-  $more.addEventListener('pointerdown', () => {
+  $more.addEventListener('click', () => {
     $menu.classList.remove('hide')
   })
 
   const $color = $menu.querySelector('.color')
   const $colors = Array.from($color.children)
   let colorIndex = 1
-  $color.addEventListener('pointerdown', () => {
+  $color.addEventListener('click', () => {
     $html.dataset.color = $colors[colorIndex].dataset.color
     $colors[colorIndex].classList.add('hide')
     colorIndex = ++colorIndex % $colors.length
@@ -31,7 +31,7 @@ export default () => {
   const $script = $menu.querySelector('.script')
   const $scripts = Array.from($script.children)
   let scriptIndex = 1
-  $script.addEventListener('pointerdown', () => {
+  $script.addEventListener('click', () => {
     $main.dataset.script = $scripts[scriptIndex].dataset.script
     $scripts[scriptIndex].classList.add('hide')
     scriptIndex = ++scriptIndex % $scripts.length
@@ -68,7 +68,7 @@ export default () => {
     $share.classList.add('hide')
     $copy.classList.add('hide')
   }
-  $save.addEventListener('pointerdown', async () => {
+  $save.addEventListener('click', async () => {
     if (!fresh) {
       $floppy.classList.add('hide')
       $spinner.classList.remove('hide')
