@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "1.4.0",
+  "version": "1.4.1",
   "scripts": {
     "build": "./node_modules/.bin/gulp",
     "watch": "./node_modules/.bin/gulp watch",
@@ -8,7 +8,8 @@
     "dev": "npm run build; npm run serve & npm run watch",
     "test": "./node_modules/.bin/gulp test",
     "deploy-gh-pages": "if [ ! -d './dist/.git' ]; then git -C dist init; git -C dist checkout -B gh-pages; git -C dist remote add origin $(git config --get remote.origin.url); fi; git -C dist add --all .; git -C dist commit -q --allow-empty-message -m ''; git -C dist push origin HEAD",
-    "deploy": "npm run build && npm run deploy-gh-pages"
+    "deploy-surge": "surge ./dist isipo.surge.sh",
+    "deploy": "npm run build && (npm run deploy-gh-pages; npm run deploy-surge)"
   },
   "dependencies": {},
   "devDependencies": {
@@ -54,6 +55,7 @@
     "stylelint": "8.x",
     "stylelint-config-standard": "17.x",
     "sugarss": "1.x",
+    "surge": "0.x",
     "through2": "2.x"
   }
 }
