@@ -1,5 +1,5 @@
 import { lookupUrl } from './isgd.js'
-import { updateKey, makeKeyStale } from './setup-menu.js'
+import { updateKey, makeKeyStale, spin } from './setup-menu.js'
 
 export let getSlug
 
@@ -12,6 +12,7 @@ export default () => {
     let text = params.get('t')
     const key = params.get('s')
     if (key) {
+      spin()
       text = new URLSearchParams(new URL(await lookupUrl('https://is.gd/' + key)).search).get('t')
       params.delete('s')
       params.set('t', new URLSearchParams(new URL(await lookupUrl('https://is.gd/' + key)).search).get('t'))

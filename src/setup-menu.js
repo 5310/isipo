@@ -1,7 +1,7 @@
 import { shortenUrl } from './isgd.js'
 import { getSlug } from './setup-url-saving.js'
 
-export let updateKey, makeKeyStale
+export let updateKey, makeKeyStale, spin
 
 export default () => {
   const $html = document.querySelector('html')
@@ -68,12 +68,15 @@ export default () => {
     $share.classList.add('hide')
     $copy.classList.add('hide')
   }
+  spin = () => {
+    $floppy.classList.add('hide')
+    $spinner.classList.remove('hide')
+    $share.classList.add('hide')
+    $copy.classList.add('hide')
+  }
   $save.addEventListener('click', async () => {
     if (!fresh) {
-      $floppy.classList.add('hide')
-      $spinner.classList.remove('hide')
-      $share.classList.add('hide')
-      $copy.classList.add('hide')
+      spin()
       const shortUrl = await shortenUrl(window.location.href)
       key = new URL(shortUrl).pathname.slice(1)
       updateKey(key)

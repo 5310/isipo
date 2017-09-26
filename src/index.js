@@ -5,7 +5,7 @@ import setupMenu from './setup-menu.js'
 document.onreadystatechange = function () {
   if (document.readyState === 'interactive' || document.readyState === 'complete') {
     document.onreadystatechange = () => {}
-    setupUrlSaving()
     setupMenu()
+    setupUrlSaving()
   }
 }
