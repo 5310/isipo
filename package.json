@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "1.4.1",
+  "version": "1.4.2",
   "scripts": {
     "build": "./node_modules/.bin/gulp",
     "watch": "./node_modules/.bin/gulp watch",
