@@ -78,26 +78,66 @@ var setupMenu = (() => {
 
   const $save = $menu.querySelector('.save');
   const $shortUrl = $save.querySelector('.label');
+  const $floppy = $save.querySelector('.floppy');
+  const $spinner = $save.querySelector('.spinner');
+  const $share = $save.querySelector('.share');
+  const $copy = $save.querySelector('.copy');
+  let fresh = true;
   let key = '';
   updateKey = k => {
-    // TODO: Show share, hide spinner, floppy
+    fresh = true;
     key = k;
     $shortUrl.innerHTML = key;
     const params = new window.URLSearchParams(window.location.search);
     params.set('s', key);
     params.delete('t');
     window.history.pushState({}, '', window.location.pathname + '?' + params);
+    $floppy.classList.add('hide');
+    $spinner.classList.add('hide');
+    $share.classList.add('hide');
+    $copy.classList.add('hide');
+    if (navigator.share) $share.classList.remove('hide');else $copy.classList.remove('hide');
   };
   makeKeyStale = () => {
-    // TODO: Show floppy, hide share, spinner
+    fresh = false;
+    $floppy.classList.remove('hide');
+    $spinner.classList.add('hide');
+    $share.classList.add('hide');
+    $copy.classList.add('hide');
   };
   $save.addEventListener('pointerdown', asyncToGenerator(function* () {
-    // TODO: Show spinner, hide floppy, share
-    const shortUrl = yield shortenUrl(window.location.href);
-    key = new URL(shortUrl).pathname.slice(1);
-    updateKey(key);
+    if (!fresh) {
+      $floppy.classList.add('hide');
+      $spinner.classList.remove('hide');
+      $share.classList.add('hide');
+      $copy.classList.add('hide');
+      const shortUrl = yield shortenUrl(window.location.href);
+      key = new URL(shortUrl).pathname.slice(1);
+      updateKey(key);
+    } else {
+      if (navigator.share) {
+        navigator.share({
+          title: 'sitelen-pona',
+          text: getSlug(),
+          url: window.location.href
+        }).then(function () {
+          return console.log('Successful share');
+        }).catch(function (error) {
+          return console.log('Error sharing', error);
+        });
+      } else {
+        const dummy = document.createElement('textarea');
+        dummy.value = window.location.href;
+        document.body.appendChild(dummy);
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+      }
+    }
   }));
 });
+
+let getSlug;
 
 var setupUrlSaving = (() => {
   const params = new window.URLSearchParams(window.location.search);
@@ -116,6 +156,7 @@ var setupUrlSaving = (() => {
         updateKey(key);
       }
       content.innerHTML = text || 'toki!<br>' + 'ni li ilo sitelen-pona<br>' + 'ni li ilo pi sitelen lon sitelen-pona. ni li sitelen kepeken linja-pona<br>' + 'jan [_sitelen_ante_musi_esun] pali ee linja-pona. jan ni li pona mute!';
+      title();
     });
 
     return function load() {
@@ -129,13 +170,15 @@ var setupUrlSaving = (() => {
     makeKeyStale();
   };
   // Update title from content.
-  const title = function () {
+  getSlug = () => {
     for (let line of content.innerHTML.split('<br>')) {
       if (line) {
-        document.title = 'isipo' + ' - ' + line.replace(/<[a-z0-9-]+>/g, '');
-        break;
+        return line.replace(/<[a-z0-9-]+>/g, '');
       }
     }
+  };
+  const title = function () {
+    document.title = 'isipo - ' + getSlug();
   };
   // Place caret at the end of content.
   const focus = function () {
@@ -186,7 +229,6 @@ var setupUrlSaving = (() => {
 
   // Initialize.
   load();
-  title();
   focus();
 });
 
