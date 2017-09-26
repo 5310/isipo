@@ -25,13 +25,11 @@ Toki Pona latin notepad app.
   - [x] Display a "working" icon while saving.
   - [x] Share button if Web Share present or copy url to clipboard
     - https://developers.google.com/web/updates/2016/09/navigator-share
-- [ ] v1.4
-  - [ ] Refactor file names
-  - [ ] Refactor all the replacing buttons with replacing icons instead
-  - [ ] About page
-    - [ ] Explanations about URL saving in English and Toki Pona
-    - [ ] Links to source, etc
-    - [ ] isipo logo
+- [x] v1.4
+  - [x] Refactor file names
+  - [x] About page
+    - [x] Links to source, etc
+    - [x] isipo logo
 - v1.x
   - Automatic gloss.
   - Allow copying/saving to rendered images.
