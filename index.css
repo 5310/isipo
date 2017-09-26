@@ -98,12 +98,16 @@
     --color-fg: #333;
     --color-fg-faded: rgba(51, 51, 51, .25);
     --color-fg-faint: rgba(51, 51, 51, .07);
-    --color-warning: yellow;
-    --color-warning-faded: rgba(255, 255, 0, .5);
-    --color-warning-faint: rgba(255, 255, 0, .25);
-    --color-error: red;
-    --color-error-faded: rgba(255, 0, 0, .25);
-    --color-error-faint: rgba(255, 0, 0, .07);
+    --color-okay: chartreuse;
+    --color-okay-faded: rgba(127, 255, 0, .5);
+    --color-okay-faint: rgba(127, 255, 0, .25);
+    --color-fg-faint: rgba(51, 51, 51, .07);
+    --color-warning: gold;
+    --color-warning-faded: rgba(255, 215, 0, .5);
+    --color-warning-faint: rgba(255, 215, 0, .25);
+    --color-error: tomato;
+    --color-error-faded: rgba(255, 99, 71, .25);
+    --color-error-faint: rgba(255, 99, 71, .07);
 }
 
 :root[data-color=twilight] {
@@ -161,12 +165,16 @@ html {
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 main {
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
   padding: 2rem;
   font-size: 1.5rem;
   white-space: pre-wrap;
@@ -236,19 +244,62 @@ aside .menu .logo {
       margin-left: -0.2rem;
 }
 
+aside .about-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+aside .about-content .card {
+      z-index: 10;
+      max-width: 75vw;
+      max-height: 80vh;
+      padding: 2em;
+      overflow-y: auto;
+      display: grid;
+      grid-gap: 16px;
+      line-height: 2em;
+}
+
+aside .about-content .card .button {
+        margin-left: -10px;
+        margin-bottom: -10px;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+  color: inherit;
+}
+
 .button {
   width: 36px;
   height: 36px;
   padding: 4px;
   border-radius: 50%;
+  transition: background 500ms;
 }
 
 .button .icon > svg {
     margin: 2px;
 }
 
+.button.error {
+    background: var(--color-error-faded);
+}
+
 .button.warning {
     background: var(--color-warning-faded);
+}
+
+.button.okay {
+    background: var(--color-okay-faded);
 }
 
 .button:hover {
@@ -277,10 +328,11 @@ aside .menu .logo {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 .logo {
   white-space: pre;
+  font-family: "linja pona 3", "linja pona", sans-serif;
   font-size: 2rem;
 }

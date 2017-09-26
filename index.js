@@ -40,6 +40,7 @@ var asyncToGenerator = function (fn) {
 
 let updateKey;
 let makeKeyStale;
+let spin;
 
 var setupMenu = (() => {
   const $html = document.querySelector('html');
@@ -49,17 +50,17 @@ var setupMenu = (() => {
   const $more = document.querySelector('aside .more');
   const $aside = document.querySelector('aside');
   const $menu = $aside.querySelector('.menu');
-  $menu.querySelector('.overlay').addEventListener('pointerdown', () => {
+  $menu.querySelector('.overlay').addEventListener('click', () => {
     $menu.classList.add('hide');
   });
-  $more.addEventListener('pointerdown', () => {
+  $more.addEventListener('click', () => {
     $menu.classList.remove('hide');
   });
 
   const $color = $menu.querySelector('.color');
   const $colors = Array.from($color.children);
   let colorIndex = 1;
-  $color.addEventListener('pointerdown', () => {
+  $color.addEventListener('click', () => {
     $html.dataset.color = $colors[colorIndex].dataset.color;
     $colors[colorIndex].classList.add('hide');
     colorIndex = ++colorIndex % $colors.length;
@@ -69,7 +70,7 @@ var setupMenu = (() => {
   const $script = $menu.querySelector('.script');
   const $scripts = Array.from($script.children);
   let scriptIndex = 1;
-  $script.addEventListener('pointerdown', () => {
+  $script.addEventListener('click', () => {
     $main.dataset.script = $scripts[scriptIndex].dataset.script;
     $scripts[scriptIndex].classList.add('hide');
     scriptIndex = ++scriptIndex % $scripts.length;
@@ -82,7 +83,7 @@ var setupMenu = (() => {
   const $spinner = $save.querySelector('.spinner');
   const $share = $save.querySelector('.share');
   const $copy = $save.querySelector('.copy');
-  let fresh = true;
+  let fresh = false;
   let key = '';
   updateKey = k => {
     fresh = true;
@@ -97,6 +98,9 @@ var setupMenu = (() => {
     $share.classList.add('hide');
     $copy.classList.add('hide');
     if (navigator.share) $share.classList.remove('hide');else $copy.classList.remove('hide');
+    $more.classList.remove('error');
+    $more.classList.remove('warning');
+    $more.classList.add('okay');
   };
   makeKeyStale = () => {
     fresh = false;
@@ -104,13 +108,22 @@ var setupMenu = (() => {
     $spinner.classList.add('hide');
     $share.classList.add('hide');
     $copy.classList.add('hide');
+    $more.classList.remove('error');
+    $more.classList.remove('warning');
+    $more.classList.remove('okay');
   };
-  $save.addEventListener('pointerdown', asyncToGenerator(function* () {
+  spin = () => {
+    $floppy.classList.add('hide');
+    $spinner.classList.remove('hide');
+    $share.classList.add('hide');
+    $copy.classList.add('hide');
+    $more.classList.remove('error');
+    $more.classList.add('warning');
+    $more.classList.remove('okay');
+  };
+  $save.addEventListener('click', asyncToGenerator(function* () {
     if (!fresh) {
-      $floppy.classList.add('hide');
-      $spinner.classList.remove('hide');
-      $share.classList.add('hide');
-      $copy.classList.add('hide');
+      spin();
       const shortUrl = yield shortenUrl(window.location.href);
       key = new URL(shortUrl).pathname.slice(1);
       updateKey(key);
@@ -135,6 +148,11 @@ var setupMenu = (() => {
       }
     }
   }));
+
+  const $about = $menu.querySelector('.about');
+  const $abountContent = $aside.querySelector('.about-content');
+  $about.addEventListener('click', () => $abountContent.classList.remove('hide'));
+  $abountContent.querySelector('.overlay').addEventListener('click', () => $abountContent.classList.add('hide'));
 });
 
 let getSlug;
@@ -149,13 +167,14 @@ var setupUrlSaving = (() => {
       let text = params.get('t');
       const key = params.get('s');
       if (key) {
+        spin();
         text = new URLSearchParams(new URL((yield lookupUrl('https://is.gd/' + key))).search).get('t');
         params.delete('s');
         params.set('t', new URLSearchParams(new URL((yield lookupUrl('https://is.gd/' + key))).search).get('t'));
         window.history.pushState({}, '', window.location.pathname + '?' + params);
         updateKey(key);
       }
-      content.innerHTML = text || 'toki!<br>' + 'ni li ilo sitelen-pona<br>' + 'ni li ilo pi sitelen lon sitelen-pona. ni li sitelen kepeken linja-pona<br>' + 'jan [_sitelen_ante_musi_esun] pali ee linja-pona. jan ni li pona mute!';
+      content.innerHTML = text || 'toki!';
       title();
     });
 
@@ -235,8 +254,8 @@ var setupUrlSaving = (() => {
 document.onreadystatechange = function () {
   if (document.readyState === 'interactive' || document.readyState === 'complete') {
     document.onreadystatechange = () => {};
-    setupUrlSaving();
     setupMenu();
+    setupUrlSaving();
   }
 };
 
