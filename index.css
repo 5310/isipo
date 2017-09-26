@@ -180,6 +180,10 @@ main {
   white-space: pre-wrap;
 }
 
+main:focus {
+    outline: none;
+}
+
 aside {
   position: fixed;
   top: 0;
