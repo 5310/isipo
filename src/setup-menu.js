@@ -60,6 +60,9 @@ export default () => {
     $copy.classList.add('hide')
     if (navigator.share) $share.classList.remove('hide')
     else $copy.classList.remove('hide')
+    $more.classList.remove('error')
+    $more.classList.remove('warning')
+    $more.classList.add('okay')
   }
   makeKeyStale = () => {
     fresh = false
@@ -67,12 +70,18 @@ export default () => {
     $spinner.classList.add('hide')
     $share.classList.add('hide')
     $copy.classList.add('hide')
+    $more.classList.remove('error')
+    $more.classList.remove('warning')
+    $more.classList.remove('okay')
   }
   spin = () => {
     $floppy.classList.add('hide')
     $spinner.classList.remove('hide')
     $share.classList.add('hide')
     $copy.classList.add('hide')
+    $more.classList.remove('error')
+    $more.classList.add('warning')
+    $more.classList.remove('okay')
   }
   $save.addEventListener('click', async () => {
     if (!fresh) {

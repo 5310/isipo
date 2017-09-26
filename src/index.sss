@@ -14,12 +14,16 @@
     --color-fg: #333
     --color-fg-faded: color(#333 a(25%))
     --color-fg-faint: color(#333 a(7%))
-    --color-warning: yellow
-    --color-warning-faded: color(yellow a(50%))
-    --color-warning-faint: color(yellow a(25%))
-    --color-error: red
-    --color-error-faded: color(red a(25%))
-    --color-error-faint: color(red a(7%))
+    --color-okay: chartreuse
+    --color-okay-faded: color(chartreuse a(50%))
+    --color-okay-faint: color(chartreuse a(25%))
+    --color-fg-faint: color(#333 a(7%))
+    --color-warning: gold
+    --color-warning-faded: color(gold a(50%))
+    --color-warning-faint: color(gold a(25%))
+    --color-error: tomato
+    --color-error-faded: color(tomato a(25%))
+    --color-error-faint: color(tomato a(7%))
 
   &[data-color=twilight]
     --color-bg: #827066
@@ -144,12 +148,19 @@ aside
   height: 36px
   padding: 4px
   border-radius: 50%
+  transition: background 500ms
 
   .icon > svg
     margin: 2px
 
+  &.error
+    background: var(--color-error-faded)
+
   &.warning
     background: var(--color-warning-faded)
+
+  &.okay
+    background: var(--color-okay-faded)
 
   &:hover
     background: var(--color-fg-faint)
