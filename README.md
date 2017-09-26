@@ -27,6 +27,7 @@ Toki Pona latin notepad app.
     - https://developers.google.com/web/updates/2016/09/navigator-share
     - https://clipboardjs.com/
 - [ ] v1.4
+  - [ ] Refactor file names
   - [ ] Refactor all the replacing buttons with replacing icons instead
   - [ ] About page
     - [ ] Explanations about URL saving in English and Toki Pona
