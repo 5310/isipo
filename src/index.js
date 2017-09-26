@@ -1,6 +1,6 @@
 import './sw-register.js'
-import setupUrlSaving from './setup-url-saving.js'
-import setupMenu from './setup-menu.js'
+import setupUrlSaving from './url-params.js'
+import setupMenu from './menu.js'
 
 document.onreadystatechange = function () {
   if (document.readyState === 'interactive' || document.readyState === 'complete') {

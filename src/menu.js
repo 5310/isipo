@@ -1,5 +1,5 @@
 import { shortenUrl } from './isgd.js'
-import { getSlug } from './setup-url-saving.js'
+import { getSlug } from './url-params.js'
 
 export let updateKey, makeKeyStale, spin
 

@@ -1,5 +1,5 @@
 import { lookupUrl } from './isgd.js'
-import { updateKey, makeKeyStale, spin } from './setup-menu.js'
+import { updateKey, makeKeyStale, spin } from './menu.js'
 
 export let getSlug
 
