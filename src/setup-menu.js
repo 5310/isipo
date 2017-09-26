@@ -39,21 +39,34 @@ export default () => {
 
   const $save = $menu.querySelector('.save')
   const $shortUrl = $save.querySelector('.label')
+  const $floppy = $save.querySelector('.floppy')
+  const $spinner = $save.querySelector('.spinner')
+  const $share = $save.querySelector('.share')
+  // const $copy = $save.querySelector('.copy')
   let key = ''
   updateKey = k => {
-    // TODO: Show share, hide spinner, floppy
     key = k
     $shortUrl.innerHTML = key
     const params = new window.URLSearchParams(window.location.search)
     params.set('s', key)
     params.delete('t')
     window.history.pushState({}, '', window.location.pathname + '?' + params)
+    $floppy.classList.add('hide')
+    $share.classList.remove('hide')
+    $spinner.classList.add('hide')
+    // $copy.classList.add('hide')
   }
   makeKeyStale = () => {
-    // TODO: Show floppy, hide share, spinner
+    $floppy.classList.remove('hide')
+    $share.classList.add('hide')
+    $spinner.classList.add('hide')
+    // $copy.classList.add('hide')
   }
   $save.addEventListener('pointerdown', async () => {
-    // TODO: Show spinner, hide floppy, share
+    $floppy.classList.add('hide')
+    $share.classList.add('hide')
+    $spinner.classList.remove('hide')
+    // $copy.classList.add('hide')
     const shortUrl = await shortenUrl(window.location.href)
     key = new URL(shortUrl).pathname.slice(1)
     updateKey(key)
