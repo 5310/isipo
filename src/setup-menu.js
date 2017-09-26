@@ -44,7 +44,7 @@ export default () => {
   const $spinner = $save.querySelector('.spinner')
   const $share = $save.querySelector('.share')
   const $copy = $save.querySelector('.copy')
-  let fresh = true
+  let fresh = false
   let key = ''
   updateKey = k => {
     fresh = true
