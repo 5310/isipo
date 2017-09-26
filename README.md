@@ -17,7 +17,7 @@ Toki Pona latin notepad app.
     - [x] Twilight
     - [x] Dark
     - [x] Black
-- [ ] v1.3
+- [x] v1.3
   - [x] Is.gd URL shortening
     - https://www.npmjs.com/package/isgd
     - [x] Implement a custom query parameter that delegates shortened urls
