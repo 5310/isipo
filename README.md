@@ -23,9 +23,8 @@ Toki Pona latin notepad app.
     - [x] Implement a custom query parameter that delegates shortened urls
   - [x] Display save freshness on overflow and save icon
   - [x] Display a "working" icon while saving.
-  - [ ] Share button if Web Share present or copy url to clipboard
+  - [x] Share button if Web Share present or copy url to clipboard
     - https://developers.google.com/web/updates/2016/09/navigator-share
-    - https://clipboardjs.com/
 - [ ] v1.4
   - [ ] Refactor file names
   - [ ] Refactor all the replacing buttons with replacing icons instead

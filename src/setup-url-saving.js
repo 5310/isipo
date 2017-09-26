@@ -1,6 +1,8 @@
 import { lookupUrl } from './isgd.js'
 import { updateKey, makeKeyStale } from './setup-menu.js'
 
+export let getSlug
+
 export default () => {
   const params = new window.URLSearchParams(window.location.search)
   const content = document.querySelector('main')
@@ -21,6 +23,7 @@ export default () => {
       'ni li ilo sitelen-pona<br>' +
       'ni li ilo pi sitelen lon sitelen-pona. ni li sitelen kepeken linja-pona<br>' +
       'jan [_sitelen_ante_musi_esun] pali ee linja-pona. jan ni li pona mute!'
+    title()
   }
   // Save content to the URL.
   const save = function () {
@@ -29,13 +32,15 @@ export default () => {
     makeKeyStale()
   }
   // Update title from content.
-  const title = function () {
+  getSlug = () => {
     for (let line of content.innerHTML.split('<br>')) {
       if (line) {
-        document.title = 'isipo' + ' - ' + line.replace(/<[a-z0-9-]+>/g, '')
-        break
+        return line.replace(/<[a-z0-9-]+>/g, '')
       }
     }
+  }
+  const title = function () {
+    document.title = 'isipo - ' + getSlug()
   }
   // Place caret at the end of content.
   const focus = function () {
@@ -85,6 +90,5 @@ export default () => {
 
   // Initialize.
   load()
-  title()
   focus()
 }

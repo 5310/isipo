@@ -1,4 +1,5 @@
 import { shortenUrl } from './isgd.js'
+import { getSlug } from './setup-url-saving.js'
 
 export let updateKey, makeKeyStale
 
@@ -42,9 +43,11 @@ export default () => {
   const $floppy = $save.querySelector('.floppy')
   const $spinner = $save.querySelector('.spinner')
   const $share = $save.querySelector('.share')
-  // const $copy = $save.querySelector('.copy')
+  const $copy = $save.querySelector('.copy')
+  let fresh = true
   let key = ''
   updateKey = k => {
+    fresh = true
     key = k
     $shortUrl.innerHTML = key
     const params = new window.URLSearchParams(window.location.search)
@@ -52,23 +55,45 @@ export default () => {
     params.delete('t')
     window.history.pushState({}, '', window.location.pathname + '?' + params)
     $floppy.classList.add('hide')
-    $share.classList.remove('hide')
     $spinner.classList.add('hide')
-    // $copy.classList.add('hide')
+    $share.classList.add('hide')
+    $copy.classList.add('hide')
+    if (navigator.share) $share.classList.remove('hide')
+    else $copy.classList.remove('hide')
   }
   makeKeyStale = () => {
+    fresh = false
     $floppy.classList.remove('hide')
-    $share.classList.add('hide')
     $spinner.classList.add('hide')
-    // $copy.classList.add('hide')
+    $share.classList.add('hide')
+    $copy.classList.add('hide')
   }
   $save.addEventListener('pointerdown', async () => {
-    $floppy.classList.add('hide')
-    $share.classList.add('hide')
-    $spinner.classList.remove('hide')
-    // $copy.classList.add('hide')
-    const shortUrl = await shortenUrl(window.location.href)
-    key = new URL(shortUrl).pathname.slice(1)
-    updateKey(key)
+    if (!fresh) {
+      $floppy.classList.add('hide')
+      $spinner.classList.remove('hide')
+      $share.classList.add('hide')
+      $copy.classList.add('hide')
+      const shortUrl = await shortenUrl(window.location.href)
+      key = new URL(shortUrl).pathname.slice(1)
+      updateKey(key)
+    } else {
+      if (navigator.share) {
+        navigator.share({
+          title: 'sitelen-pona',
+          text: getSlug(),
+          url: window.location.href,
+        })
+          .then(() => console.log('Successful share'))
+          .catch((error) => console.log('Error sharing', error))
+      } else {
+        const dummy = document.createElement('textarea')
+        dummy.value = window.location.href
+        document.body.appendChild(dummy)
+        dummy.select()
+        document.execCommand('copy')
+        document.body.removeChild(dummy)
+      }
+    }
   })
 }
