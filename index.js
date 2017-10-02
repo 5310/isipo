@@ -54,7 +54,6 @@ var setupMenu = (() => {
     $menu.classList.add('hide');
   });
   $more.addEventListener('click', () => {
-    console.log(321321321);
     $menu.classList.remove('hide');
   });
 
@@ -185,7 +184,8 @@ var setupUrlSaving = (() => {
   })();
   // Save content to the URL.
   const save = function () {
-    params.set('t', content.innerHTML);
+    params.set('t', content.innerHTML // Replace div soup with newlines.
+    .replace(/<div>/g, '\n').replace(/<\/?(div|br)>/g, ''));
     window.history.replaceState({}, '', window.location.pathname + '?' + params);
     makeKeyStale();
   };
@@ -235,13 +235,8 @@ var setupUrlSaving = (() => {
     switch (e.keyCode) {
       case 9:
         // Let tabs be tabs~
-        // TODO: Consider indent/outdent for selections with tab/shift+tab.
+        // TODO: Consider `document.execCommand('indent')` and `outdent`
         document.execCommand('insertHTML', false, '&#9');
-        e.preventDefault();
-        break;
-      case 13:
-        // TODO: Caret doesn't move to new line visually, but does in function.
-        document.execCommand('insertHTML', false, '\n');
         e.preventDefault();
         break;
     }
