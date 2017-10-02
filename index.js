@@ -54,6 +54,7 @@ var setupMenu = (() => {
     $menu.classList.add('hide');
   });
   $more.addEventListener('click', () => {
+    console.log(321321321);
     $menu.classList.remove('hide');
   });
 
