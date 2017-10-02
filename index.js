@@ -239,8 +239,8 @@ var setupUrlSaving = (() => {
         e.preventDefault();
         break;
       case 13:
-        // Override newline to be just `<br>` without wrapping `<div>`s
-        document.execCommand('insertHTML', false, '<br><br>');
+        // TODO: Caret doesn't move to new line visually, but does in function.
+        document.execCommand('insertHTML', false, '\n');
         e.preventDefault();
         break;
     }
