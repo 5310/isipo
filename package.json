@@ -51,7 +51,7 @@
     "rollup-plugin-node-resolve": "3.x",
     "rollup-plugin-pug": "0.x",
     "rollup-plugin-purs": "1.x",
-    "serve": "6.x",
+    "serve": "7.x",
     "stylelint": "8.x",
     "stylelint-config-standard": "17.x",
     "sugarss": "1.x",
